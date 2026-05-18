@@ -48,6 +48,7 @@ jobs:
 
       - name: Verify image was created
         run: docker images | grep my-app
+
   deploy:
     name: Deploy to Railway
     runs-on: ubuntu-latest
