@@ -56,7 +56,7 @@ jobs:
     steps:
       - uses: appleboy/ssh-action@v1
         with:
-          host: ${{ secrets.SERVER_HOST }}
+          host: ${{ secrets.RAILWAY_TOKEN }}
           username: ${{ secrets.SERVER_USER }}
           key: ${{ secrets.SERVER_SSH_KEY }}
           script: |
@@ -67,5 +67,5 @@ jobs:
             echo "Deployed successfully at $(date)"
       - run: |
           sleep 15
-          STATUS=$(curl -s -o /dev/null -w "%{http_code}" http://${{ secrets.TOKEN }}/health)
+          STATUS=$(curl -s -o /dev/null -w "%{http_code}" http://${{ secrets.RAILWAY_TOKEN }}/health)
           [ "$STATUS" = "200" ] && echo "App is running!" || (echo "Failed: $STATUS" && exit 1)
