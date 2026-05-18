@@ -10,5 +10,6 @@ def health_check():
 def home():
     return jsonify({"message": "Hello from my app!"})
 
+
 if __name__ == "__main__":
     app.run(host="0.0.0.0", port=5000)
